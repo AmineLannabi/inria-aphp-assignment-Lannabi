@@ -5,8 +5,6 @@
 
 Lannabi Amine
 lannabi.ma@gmail.com
-06.50.30.46.06
-
 
 
 # Liste des librairies a installer pour utiliser mon code
