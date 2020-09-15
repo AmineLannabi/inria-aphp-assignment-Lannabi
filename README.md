@@ -34,7 +34,7 @@ lannabi.ma@gmail.com
 
 	- main.py : fichier comprenant les principales fonctions python utilisées dont la fonction 'detect_duplicates()'.
 
-	- data.db : base de données sqlite fournies.
+	- data.db : base de données sqlite fournie.
 
 	- cleandf.csv : DataFrame final une fois nettoyé
 

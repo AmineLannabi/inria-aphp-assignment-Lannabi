@@ -1,9 +1,16 @@
+#pip install pandas
 #pip install pytest-notebook
 #pip install ipytest
 #pip install pyxlsb
 #pip install jellyfish
 #pip install pyensae
 #pip install folium
+#pip install numpy
+#pip install seaborn
+#pip install matplotlib
+#pip install plotly
+#pip install pandas-profiling
+#pip install regex
 %matplotlib inline
 
 import pandas as pd
@@ -23,14 +30,14 @@ import ipytest
 import folium
 
 
-# chargement de la bdd
+# Chargement de la bdd
 engine = create_engine('sqlite:///data.db', echo=False)
 con = engine.connect()
 df_patient = pd.read_sql('select * from patient', con=con)
 df_pcr = pd.read_sql('select * from test', con=con)
 con.close()
 
-# conversion resultat pcr en boolean
+# Conversion resultat pcr en boolean
 def pcr_status(df):
     df.loc[df.pcr == 'Negative', 'pcr'] = False
     df.loc[df.pcr == 'N', 'pcr'] = False
@@ -38,6 +45,7 @@ def pcr_status(df):
     df.loc[df.pcr == 'P', 'pcr'] = True
     return df
 
+# Regex lisant les caractères Alphanumériques
 def regex_filter(val):
     if val:
         mo = re.search(r'\d',val)
@@ -71,7 +79,7 @@ def correct_state(df):
                 df.state[index] = row2
     return df
 
-
+# Fonction de detection et correction des doublons
 def detect_duplicates(df):
     size = len(df)
     df.date_of_birth = df.date_of_birth.fillna(0).astype(int) # changement type du champs date de naissance 
@@ -89,7 +97,7 @@ def detect_duplicates(df):
 
 cleandf = detect_duplicates(df_patient)
 
-
+# Partie test
 ipytest.autoconfig()
 
 
