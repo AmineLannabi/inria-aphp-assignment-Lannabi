@@ -22,7 +22,6 @@ lannabi.ma@gmail.com
 	pip install plotly
 	pip install pandas-profiling
 	pip install regex
-	'''
 
 # Liste des fichiers
 
