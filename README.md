@@ -7,11 +7,9 @@ Lannabi Amine
 lannabi.ma@gmail.com
 
 
-# Liste des librairies a installer pour utiliser mon code
-	'''
-	from sqlalchemy import create_engine
-	pip install pandas
+# Librairies nécessaires
 
+	pip install pandas
 	pip install pytest-notebook
 	pip install ipytest
 	pip install pyxlsb
