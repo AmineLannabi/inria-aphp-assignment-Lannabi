@@ -96,7 +96,7 @@ ipytest.autoconfig()
 expected_len_cleandf = len(cleandf)
 expected_len_df_patient = len(df_patient)
 def test_detect_duplicates():
-    assert len(detect_duplicates(df)) == expected_len_cleandf
+    assert len(detect_duplicates(df_patient)) == expected_len_cleandf
     assert len(df_patient) == expected_len_df_patient
     assert type(df_patient) == pd.core.frame.DataFrame
 
