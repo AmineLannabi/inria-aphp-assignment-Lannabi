@@ -64,7 +64,7 @@ def correct_state(df):
     for index, row in df.iterrows():
         for index1, row2 in enumerate(state_list):
             value = row['state']
-            score = jellyfish.jaro_distance(str(value),str(row2))
+            score = jellyfish.jaro_similarity(str(value),str(row2))
             if(value != None and value not in (state_list)):
                 df.state[index] = None
             elif(score > 0.62 and score < 1 and value != None  and value != 'sa' and value != 'wa'): #sa et wa etant trop proche on ne les compare pas
@@ -81,6 +81,7 @@ def detect_duplicates(df):
     df = mergedDf
     change_P_S(df)
     correct_state(df)
+    # Suppression arbitraire des doublons sur les id
     df = df.sort_values('patient_id').drop_duplicates('patient_id', keep='first').sort_index()
     df = df.drop_duplicates(subset=['given_name','surname','postcode','state','date_of_birth'], keep='first')
     print('Pourcentage de données dupliquéees : ',((size-len(df))/size)*100,'%')
