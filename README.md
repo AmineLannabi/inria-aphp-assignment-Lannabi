@@ -1,5 +1,5 @@
 # inria-aphp-assignment-Lannabi
- inria-aphp-covid-
+ inria-aphp-covid
 
 # Contact
 
